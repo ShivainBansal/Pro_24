@@ -18,5 +18,6 @@ class Paper {
         
         fill("pink");
         circle(pos.x, pos.y, this.radius);
+      
     }
   };

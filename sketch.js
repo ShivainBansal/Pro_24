@@ -4,8 +4,8 @@ const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 
-var ground;
-var paper;
+//var ground;
+var paperBall;
 
 function preload()
 {
@@ -19,7 +19,7 @@ function setup() {
 	engine = Engine.create();
 	world = engine.world;
 
-	ground = new Ground(width/2,650,800,20);
+	//ground = new Ground(width/2,650,800,20);
 
 	paperBall = new Paper(100,600,20);
 
@@ -30,15 +30,17 @@ function setup() {
 
 
 function draw() {
-  rectMode(CENTER);
+
+	 ellipseMode(RADIUS);
+	ellipse(pos.x,pos.y,this.radius,this.radius);
   background(0);
   
-  ground.display();
+  
+
+
+
+  //ground.display();
   paperBall.display();
-
-
-
-  drawSprites();
  
 }
 
