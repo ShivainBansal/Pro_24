@@ -4,7 +4,7 @@ const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 
-//var ground;
+var ground;
 var paperBall;
 
 function preload()
@@ -13,16 +13,17 @@ function preload()
 }
 
 function setup() {
-	createCanvas(800,700);
+	createCanvas(800,600);
 
 
 	engine = Engine.create();
 	world = engine.world;
 
-	//ground = new Ground(width/2,650,800,20);
+	ground = new Ground(width/2,580,800,20);
 
-	paperBall = new Paper(100,600,20);
+	paperBall = new Paper(100,500,20);
 
+	dustbin = new Dustbin(500,510);
 
 	Engine.run(engine);
 
@@ -31,17 +32,24 @@ function setup() {
 
 function draw() {
 
-	 ellipseMode(RADIUS);
-	ellipse(pos.x,pos.y,this.radius,this.radius);
+	 
   background(0);
   
   
 
 
 
-  //ground.display();
+  ground.display();
   paperBall.display();
+  dustbin.display();
  
+}
+function keyPressed() {
+
+ if (keyCode === UP_ARROW){
+ Matter.Body.applyForce(paperBall.body,paperBall.body.position,{x:51,y:-51});
+ }
+
 }
 
 

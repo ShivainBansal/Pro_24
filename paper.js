@@ -6,7 +6,7 @@ class Paper {
           'friction':0.5,
           'density':1.2
       }
-      this.body = Bodies.circle(x, y,radius,[options],[maxSides]);
+      this.body = Bodies.circle(x, y,radius,options);
       this.radius = radius;
       
 
@@ -16,8 +16,9 @@ class Paper {
     display(){
         var pos =this.body.position;
         
-        fill("pink");
-        circle(pos.x, pos.y, this.radius);
+        fill("white");
+        ellipseMode(RADIUS);
+	      ellipse(pos.x,pos.y,this.radius,this.radius);
       
     }
   };
